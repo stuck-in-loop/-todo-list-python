@@ -5,6 +5,7 @@ while True:
     print("2. Показать задачи")
     print("3. Выход")
     print("4. Редактировать задачу")
+    print("5. Удалить задачу")
     choice = input("Выбери действие: ")
     
     if choice == "1":
@@ -31,6 +32,18 @@ while True:
             task_index = int(input("Введи номер задачи: "))
             new_title = input("Введи новый текст: ")
             tasks[task_index]["title"] = new_title
+    
+    elif choice == "5":
+        if len(tasks) == 0:
+            print(" Задач нет в списке. ")
+        else:
+            index = 0
+            for task in tasks:
+                print(index, "-", task["title"])
+                index = index + 1
+            task_index = int(input(" Выберите задачу для удаления "))
+            tasks.pop(task_index)
+            print(" Задача удалена. ")
     
     
     elif choice == "3":
